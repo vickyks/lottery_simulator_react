@@ -1,0 +1,56 @@
+.balls-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.ball {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.ball-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  background-color: #ffffff;
+  border-radius: 50%;
+  font-family: sans-serif;
+}
+
+/* Custom colors for different ranges */
+.ball-number--0s {
+  background-color: #ff4444; /* Red */
+}
+
+.ball-number--10s {
+  background-color: #448aff; /* Blue */
+}
+
+.ball-number--20s {
+  background-color: #00c853; /* Green */
+}
+
+.ball-number--30s {
+  background-color: #00bcd4; /* Cyan */
+}
+
+.ball-number--40s {
+  background-color: #8e24aa; /* Purple */
+}
+
+.star-pick {
+  background-color: #ffbb33; /* Yellow */
+}
+
