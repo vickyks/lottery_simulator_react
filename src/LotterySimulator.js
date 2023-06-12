@@ -5,7 +5,27 @@ import store, { startDrawing, stopDrawing, updateBalls } from './store';
 
 import './LotterySimulator.css';
 
+const generateAvailableBalls = (totalBalls, selectedBalls) => {
+  const allBalls = Array.from({ length: totalBalls }, (_, index) => index + 1);
+  return allBalls.filter((ball) => !selectedBalls.includes(ball));
+}
+
 class LotterySimulator extends React.Component {
+
+  pickUniqueBalls = (range, count) => {
+    const balls = []
+    const availableBalls = Array.from({ length: range }, (_, i) => i + 1);
+    while (balls.length < count) {
+      const randomIndex = Math.floor(Math.random() * availableBalls.length);
+      const ball = availableBalls[randomIndex];
+      availableBalls.splice(randomIndex, 1);
+      balls.push(ball);
+    }
+
+    balls.sort((a, b) => a - b);
+    return balls;
+  }
+
   handleClick = () => {
     const { isDrawing, startDrawing, stopDrawing, updateBalls } = this.props;
 
@@ -14,9 +34,8 @@ class LotterySimulator extends React.Component {
 
       // Simulate ball animations
       const animationInterval = setInterval(() => {
-        // Generate random numbers for balls
-        const balls49 = Array.from({ length: 5}, () => Math.floor(Math.random() * 49) + 1);
-        const balls12 = Array.from({ length: 2}, () => Math.floor(Math.random() * 12) + 1);
+        const balls49 = this.pickUniqueBalls(49, 6)
+        const balls12 = this.pickUniqueBalls(12, 2)
 
         updateBalls(balls49, balls12);
       }, 200); // end setInterval
@@ -25,7 +44,7 @@ class LotterySimulator extends React.Component {
       setTimeout(() => {
         clearInterval(animationInterval);
         stopDrawing();
-      }, 5000);
+      }, 3000);
     }
   }; // end handleClick
 

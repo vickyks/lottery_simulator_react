@@ -31,7 +31,7 @@
 
 /* Custom colors for different ranges */
 .ball-number--0s {
-  background-color: #ff4444; /* Red */
+  background-color: #00c853; /* Green */
 }
 
 .ball-number--10s {
@@ -39,7 +39,7 @@
 }
 
 .ball-number--20s {
-  background-color: #00c853; /* Green */
+  background-color: #ff4444; /* Red */
 }
 
 .ball-number--30s {
